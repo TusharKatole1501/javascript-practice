@@ -1,24 +1,13 @@
 function checkLeapYear(year) {
-
     if (typeof year !== 'number' || !Number.isInteger(year) || year < 1) {
-        console.log("Error: Please provide a valid positive integer year");
-        return false;
+        return { valid: false, message: "Error: Please provide a valid positive integer year" };
     }
 
-    if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)){
-        console.log("Leap year");
+    if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+        return { valid: true, message: "Leap year" };
     } else {
-        console.log("Not leap year");
+        return { valid: true, message: "Not leap year" };
     }
 }
 
-checkLeapYear(2004);
-checkLeapYear(2000);
-checkLeapYear(1700);
-checkLeapYear(2100);
-checkLeapYear(2104);
-checkLeapYear(2400);
-checkLeapYear(null);
-checkLeapYear("2004");
-checkLeapYear(-2004);
-checkLeapYear("abc");
+module.exports = checkLeapYear;
